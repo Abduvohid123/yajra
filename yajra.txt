@@ -1,0 +1,19 @@
+php artisan make:migration create_article_tbl --create=articles
+composer require yajra/laravel-datatables-oracle
+
+
+'providers' => [
+    ...,
+    Yajra\DataTables\DataTablesServiceProvider::class,
+]
+
+'aliases' => [
+    ...,
+    'DataTables' => Yajra\DataTables\Facades\DataTables::class,
+]
+
+php artisan vendor:publish --provider="Yajra\DataTables\DataTablesServiceProvider"
+
+
+php artisan make:controller ArticleController --resource --model=Article
+
