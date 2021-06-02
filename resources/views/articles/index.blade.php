@@ -36,7 +36,7 @@
 
     <!-- Create Article Modal -->
     <div class="modal" id="CreateArticleModal">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <!-- Modal Header -->
                 <div class="modal-header">

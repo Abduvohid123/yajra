@@ -61,8 +61,8 @@ return response()->json(['success'=>'Article added successfully']);
 * Show the form for editing the specified resource.
 *
 * @param  \App\Models\Article  $article
-* @return \Illuminate\Http\Response
-*/
+* @return \Illuminate\Http\JsonResponse
+ */
 public function edit($id)
 {
 $article = new Article;
@@ -86,8 +86,8 @@ return response()->json(['html'=>$html]);
 *
 * @param  \Illuminate\Http\Request  $request
 * @param  \App\Models\Article  $article
-* @return \Illuminate\Http\Response
-*/
+* @return \Illuminate\Http\JsonResponse
+ */
 public function update(Request $request, $id)
 {
 $validator = \Validator::make($request->all(), [
@@ -109,8 +109,8 @@ return response()->json(['success'=>'Article updated successfully']);
 * Remove the specified resource from storage.
 *
 * @param  \App\Models\Article  $article
-* @return \Illuminate\Http\Response
-*/
+* @return \Illuminate\Http\JsonResponse
+ */
 public function destroy($id)
 {
 $article = new Article;

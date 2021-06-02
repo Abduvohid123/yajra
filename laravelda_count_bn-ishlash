@@ -1,0 +1,23 @@
+ public function successOrders()
+    {
+        $statuses = OrderStatus::select('id')->whereIn('slug', ['kuryerga-yuborildi', 'yetkazib-berildi'])->get();
+        return $this->hasMany(Order::class)->whereIn('status', $statuses);
+    }
+
+    public function deliveredOrders()
+    {
+        $status = OrderStatus::select('id')->where('slug', 'yetkazib-berildi')->first();
+        return $this->hasMany(Order::class)->where('status', $status->id);
+    }
+
+    public function undeliveredOrders()
+    {
+        $status = OrderStatus::select('id')->where('slug', 'kuryerga-yuborildi')->first();
+        return $this->hasMany(Order::class)->where('status', $status->id);
+    }
+
+
+
+
+    foreach (Region::withCount(['successOrders', 'deliveredOrders', 'undeliveredOrders'])->get() as $region) {
+
